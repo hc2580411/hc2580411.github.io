@@ -1,16 +1,4 @@
-// 项目数据
-            const projects = [
-                {
-                    title: "project1-title",
-                    titleText: "创意作品集网站",
-                    image: "/api/placeholder/600/400",
-                    tags: ["网页设计", "前端开发"],
-                    description: "project1-desc",
-                    descriptionText: "为一位艺术家设计的现代作品集网站，展示其各种创意项目。",
-                    link: "#"
-                },
-                {
-                <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
@@ -47,6 +35,336 @@
         nav.scrolled {
             padding: 10px 0;
             background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3a86ff;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #3a86ff;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #3a86ff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .toggle-theme, .toggle-lang {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: #333;
+            transition: transform 0.3s ease;
+            padding: 5px;
+        }
+
+        .toggle-theme:hover, .toggle-lang:hover {
+            transform: rotate(10deg);
+        }
+
+        /* 英雄区域 */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            padding: 0 20px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #3a86ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(58, 134, 255, 0.4);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(58, 134, 255, 0.6);
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.3;
+            filter: blur(60px);
+            animation: float 10s infinite ease-in-out;
+        }
+
+        .shape1 {
+            width: 300px;
+            height: 300px;
+            background-color: #ff6b6b;
+            top: 20%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .shape2 {
+            width: 200px;
+            height: 200px;
+            background-color: #3a86ff;
+            bottom: 10%;
+            right: 20%;
+            animation-delay: 2s;
+        }
+
+        .shape3 {
+            width: 150px;
+            height: 150px;
+            background-color: #8338ec;
+            top: 60%;
+            left: 60%;
+            animation-delay: 1s;
+        }
+
+        /* 关于部分 */
+        .section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: #3a86ff;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: perspective(1000px) rotateY(10deg);
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .skill-bars {
+            margin-top: 30px;
+        }
+
+        .skill-bar {
+            margin-bottom: 20px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-progress {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress-bar {
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(90deg, #3a86ff, #8338ec);
+            width: 0%;
+            transition: width 1.5s ease-out;
+        }
+
+        /* 项目部分 */
+        .projects {
+            background-color: #f9f9f9;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .project-tag {
+            background-color: #edf2ff;
+            color: #3a86ff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-desc {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: #3a86ff;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #1a56cc;
         }
 
         .nav-content {
@@ -615,6 +933,89 @@
             border-color: #444;
             color: #f0f2f5;
         }
+        
+        body.dark-mode .project-tag {
+            background-color: #3a3a3a;
+            color: #7f9cf5;
+        }
+        
+        body.dark-mode .project-link {
+            color: #7f9cf5;
+        }
+        
+        body.dark-mode .project-link:hover {
+            color: #a3bffa;
+        }
+        
+        body.dark-mode .contact-icon {
+            background-color: #4a5568;
+            box-shadow: 0 5px 15px rgba(74, 85, 104, 0.3);
+        }
+        
+        body.dark-mode .submit-btn {
+            background-color: #4a5568;
+            box-shadow: 0 4px 15px rgba(74, 85, 104, 0.4);
+        }
+        
+        body.dark-mode .submit-btn:hover {
+            background-color: #2d3748;
+            box-shadow: 0 8px 20px rgba(74, 85, 104, 0.6);
+        }
+        
+        body.dark-mode .back-to-top {
+            background-color: #4a5568;
+            box-shadow: 0 5px 15px rgba(74, 85, 104, 0.5);
+        }
+        
+        body.dark-mode .back-to-top:hover {
+            box-shadow: 0 8px 20px rgba(74, 85, 104, 0.7);
+        }
+        
+        body.dark-mode .social-link {
+            background-color: #4a5568;
+        }
+        
+        body.dark-mode .social-link:hover {
+            background-color: #7f9cf5;
+        }
+
+        /* Added dark mode styles */
+        body.dark-mode .project-tag {
+            background-color: #444;
+            color: #a3bffa;
+        }
+
+        body.dark-mode .project-link {
+            color: #a3bffa;
+        }
+
+        body.dark-mode .project-link:hover {
+            color: #7f9cf5;
+        }
+
+        body.dark-mode .contact-icon {
+            background-color: #a3bffa;
+        }
+
+        body.dark-mode .submit-btn {
+            background-color: #a3bffa;
+        }
+
+        body.dark-mode .submit-btn:hover {
+            background-color: #7f9cf5;
+        }
+
+        body.dark-mode .back-to-top {
+            background-color: #a3bffa;
+        }
+
+        body.dark-mode .social-link {
+            background-color: #444;
+        }
+
+        body.dark-mode .social-link:hover {
+            background-color: #a3bffa;
+        }
 
         /* 响应式设计 */
         @media (max-width: 768px) {
@@ -694,8 +1095,8 @@
                 <a href="#contact" class="nav-link translate" data-key="contact">联系</a>
             </div>
             <div class="nav-controls">
-                <button id="toggleTheme" class="toggle-theme">🌙</button>
-                <button id="toggleLang" class="toggle-lang">EN</button>
+            <button id="toggleTheme" class="toggle-theme" aria-label="Toggle dark mode">🌙</button>
+                <button id="toggleLang" class="toggle-lang" aria-label="Toggle language">EN</button>
             </div>
         </div>
     </nav>
@@ -833,6 +1234,31 @@
     <div class="back-to-top" id="backToTop">↑</div>
 
     <script>
+        // 项目数据
+        const projects = [
+            {
+                title: "project1-title",
+                image: "/api/placeholder/600/400",
+                tags: ["web-design", "frontend"],
+                description: "project1-desc",
+                link: "#"
+            },
+            {
+                title: "project2-title",
+                image: "/api/placeholder/600/400",
+                tags: ["web-design", "frontend"],
+                description: "project2-desc",
+                link: "#"
+            },
+            {
+                title: "project3-title",
+                image: "/api/placeholder/600/400",
+                tags: ["ux", "frontend"],
+                description: "project3-desc",
+                link: "#"
+            }
+        ];
+
         // 翻译数据
         const translations = {
             "zh": {
@@ -841,7 +1267,7 @@
                 "about": "关于我",
                 "projects": "项目",
                 "contact": "联系",
-                "greeting": "你好，我是 ",
+                "greeting": "你好，我是程恒 ",
                 "intro": "欢迎来到我的个人网站。我是一位热衷于创造精彩数字体验的专业人士。",
                 "view-projects": "查看我的作品",
                 "about-me": "关于我",
@@ -908,14 +1334,66 @@
                 "thank-message": "Thank you for your message, {{name}}! We will reply to you as soon as possible."
             }
         };
-        
+
         // DOM加载完成后执行
         document.addEventListener('DOMContentLoaded', function() {
-            // 打字效果
+            let currentLang = localStorage.getItem('language') || 'zh'; // Default to Chinese
+
+            // Function to update translations
+            function updateTranslations(lang) {
+                document.querySelectorAll('.translate').forEach(element => {
+                    const key = element.getAttribute('data-key');
+                    if (key && translations[lang][key]) {
+                        element.textContent = translations[lang][key];
+                    }
+                });
+
+                // Update project cards
+                const projectsGrid = document.getElementById('projectsGrid');
+                projectsGrid.innerHTML = ''; // Clear existing cards
+                projects.forEach(project => {
+                    const projectCard = document.createElement('div');
+                    projectCard.className = 'project-card';
+                    projectCard.innerHTML = `
+                        <img src="${project.image}" alt="${translations[lang][project.title]}" class="project-image">
+                        <div class="project-info">
+                            <h3 class="project-title">${translations[lang][project.title]}</h3>
+                            <div class="project-tags">
+                                ${project.tags.map(tag => `<span class="project-tag">${translations[lang][tag]}</span>`).join('')}
+                            </div>
+                            <p class="project-desc">${translations[lang][project.description]}</p>
+                            <a href="${project.link}" class="project-link">${translations[lang]['view-details']}</a>
+                        </div>
+                    `;
+                    projectsGrid.appendChild(projectCard);
+                });
+
+                // Update typing effect text
+                const typingElement = document.getElementById('typingText');
+                typingElement.innerHTML = '';
+                textToType = translations[lang]['yourname'];
+                i = 0;
+                typeWriter();
+            }
+
+            // Initial translation
+            updateTranslations(currentLang);
+
+            // Language toggle
+            const toggleLang = document.getElementById('toggleLang');
+            toggleLang.textContent = currentLang === 'zh' ? 'EN' : 'ZH';
+            toggleLang.addEventListener('click', function() {
+                currentLang = currentLang === 'zh' ? 'en' : 'zh';
+                localStorage.setItem('language', currentLang);
+                toggleLang.textContent = currentLang === 'zh' ? 'EN' : 'ZH';
+                updateTranslations(currentLang);
+            });
+
+            // Typing effect
             const typingElement = document.getElementById('typingText');
-            const textToType = "你的名字";
+            let textToType = translations[currentLang]['yourname'];
             let i = 0;
-            
+
             function typeWriter() {
                 if (i < textToType.length) {
                     typingElement.innerHTML += textToType.charAt(i);
@@ -929,51 +1407,26 @@
                     }, 2000);
                 }
             }
-            
+
             typeWriter();
-            
-            // 加载项目
-            const projectsGrid = document.getElementById('projectsGrid');
-            
-            projects.forEach(project => {
-                const projectCard = document.createElement('div');
-                projectCard.className = 'project-card';
-                
-                projectCard.innerHTML = `
-                    <img src="${project.image}" alt="${project.title}" class="project-image">
-                    <div class="project-info">
-                        <h3 class="project-title">${project.title}</h3>
-                        <div class="project-tags">
-                            ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
-                        </div>
-                        <p class="project-desc">${project.description}</p>
-                        <a href="${project.link}" class="project-link">查看详情 →</a>
-                    </div>
-                `;
-                
-                projectsGrid.appendChild(projectCard);
-            });
-            
-            // 滚动效果
+
+            // Scroll effects
             const navbar = document.getElementById('navbar');
             const backToTop = document.getElementById('backToTop');
-            
+
             window.addEventListener('scroll', function() {
-                // 导航栏滚动效果
                 if (window.scrollY > 50) {
                     navbar.classList.add('scrolled');
                 } else {
                     navbar.classList.remove('scrolled');
                 }
-                
-                // 返回顶部按钮显示/隐藏
+
                 if (window.scrollY > 300) {
                     backToTop.classList.add('visible');
                 } else {
                     backToTop.classList.remove('visible');
                 }
-                
-                // 技能条动画
+
                 const skillBars = document.querySelectorAll('.skill-progress-bar');
                 skillBars.forEach(bar => {
                     const rect = bar.getBoundingClientRect();
@@ -985,62 +1438,62 @@
                     }
                 });
             });
-            
-            // 平滑滚动
+
+            // Smooth scrolling
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
-                    
                     window.scrollTo({
                         top: targetElement.offsetTop - 70,
                         behavior: 'smooth'
                     });
                 });
             });
-            
-            // 返回顶部按钮点击事件
+
+            // Back to top button
             backToTop.addEventListener('click', function() {
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
                 });
             });
-            
-            // 表单提交
+
+            // Form submission
             const contactForm = document.getElementById('contactForm');
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                
                 const name = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
                 const message = document.getElementById('message').value;
-                
-                // 在这里可以添加发送表单数据的代码
-                // 为了示例，我们只显示一个警告
-                alert(`感谢您的留言，${name}！我们会尽快回复您。`);
-                
+                alert(translations[currentLang]['thank-message'].replace('{{name}}', name));
                 contactForm.reset();
             });
-            
-            // 暗黑模式切换
+
+            // Dark mode toggle
             const toggleTheme = document.getElementById('toggleTheme');
             toggleTheme.addEventListener('click', function() {
                 document.body.classList.toggle('dark-mode');
                 localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode'));
-                
-                if (document.body.classList.contains('dark-mode')) {
-                    toggleTheme.textContent = '☀️';
-                } else {
-                    toggleTheme.textContent = '🌙';
-                }
+                toggleTheme.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
             });
-            
-            // 加载保存的主题设置
-            if(localStorage.getItem('dark-mode') === 'true') {
+
+            // Load saved theme
+            if (localStorage.getItem('dark-mode') === 'true') {
                 document.body.classList.add('dark-mode');
                 toggleTheme.textContent = '☀️';
+            } else {
+                toggleTheme.textContent = '🌙';
+            }
+            
+            // Set initial language from localStorage
+            if (localStorage.getItem('language')) {
+                currentLang = localStorage.getItem('language');
+                toggleLang.textContent = currentLang === 'zh' ? 'EN' : 'ZH';
+                updateTranslations(currentLang);
             }
         });
+    </script>
+</body>
+</html>
