@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+// 项目数据
+            const projects = [
+                {
+                    title: "project1-title",
+                    titleText: "创意作品集网站",
+                    image: "/api/placeholder/600/400",
+                    tags: ["网页设计", "前端开发"],
+                    description: "project1-desc",
+                    descriptionText: "为一位艺术家设计的现代作品集网站，展示其各种创意项目。",
+                    link: "#"
+                },
+                {
+                <!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
@@ -89,18 +101,25 @@
         .nav-link:hover::after {
             width: 100%;
         }
+        
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-        .toggle-theme {
+        .toggle-theme, .toggle-lang {
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 20px;
+            font-size: 18px;
             color: #333;
             transition: transform 0.3s ease;
+            padding: 5px;
         }
 
-        .toggle-theme:hover {
-            transform: rotate(30deg);
+        .toggle-theme:hover, .toggle-lang:hover {
+            transform: rotate(10deg);
         }
 
         /* 英雄区域 */
@@ -565,7 +584,8 @@
             color: #f0f2f5;
         }
 
-        body.dark-mode .toggle-theme {
+        body.dark-mode .toggle-theme, 
+        body.dark-mode .toggle-lang {
             color: #f0f2f5;
         }
 
@@ -666,14 +686,17 @@
     <!-- 导航栏 -->
     <nav id="navbar">
         <div class="nav-content">
-            <div class="logo">YourName</div>
+            <div class="logo translate" data-key="yourname">Your Name</div>
             <div class="nav-links">
-                <a href="#home" class="nav-link">首页</a>
-                <a href="#about" class="nav-link">关于我</a>
-                <a href="#projects" class="nav-link">项目</a>
-                <a href="#contact" class="nav-link">联系</a>
+                <a href="#home" class="nav-link translate" data-key="home">首页</a>
+                <a href="#about" class="nav-link translate" data-key="about">关于我</a>
+                <a href="#projects" class="nav-link translate" data-key="projects">项目</a>
+                <a href="#contact" class="nav-link translate" data-key="contact">联系</a>
             </div>
-            <button id="toggleTheme" class="toggle-theme">🌙</button>
+            <div class="nav-controls">
+                <button id="toggleTheme" class="toggle-theme">🌙</button>
+                <button id="toggleLang" class="toggle-lang">EN</button>
+            </div>
         </div>
     </nav>
 
@@ -683,28 +706,28 @@
         <div class="floating-shape shape2"></div>
         <div class="floating-shape shape3"></div>
         <div class="hero-content">
-            <h1>你好，我是 <span id="typingText"></span></h1>
-            <p>欢迎来到我的个人网站。我是一位热衷于创造精彩数字体验的专业人士。</p>
-            <a href="#projects" class="hero-btn btn-hover">查看我的作品</a>
+            <h1 class="translate" data-key="greeting">你好，我是 <span id="typingText"></span></h1>
+            <p class="translate" data-key="intro">欢迎来到我的个人网站。我是一位热衷于创造精彩数字体验的专业人士。</p>
+            <a href="#projects" class="hero-btn btn-hover translate" data-key="view-projects">查看我的作品</a>
         </div>
     </section>
 
     <!-- 关于部分 -->
     <section id="about" class="section">
-        <h2 class="section-title">关于我</h2>
+        <h2 class="section-title translate" data-key="about-me">关于我</h2>
         <div class="about-content">
             <div class="about-image">
                 <img src="/api/placeholder/600/400" alt="个人照片">
             </div>
             <div class="about-text">
-                <h3>我的故事</h3>
-                <p>我是一位充满热情的创作者，致力于在数字世界中创造美好体验。我热爱解决问题，并且总是在寻找新的创意挑战。</p>
-                <p>我的专业经验包括网页设计、前端开发和用户体验设计。我相信，优秀的设计不仅仅是美观，更应该是实用和有意义的。</p>
+                <h3 class="translate" data-key="my-story">我的故事</h3>
+                <p class="translate" data-key="story-p1">我是一位充满热情的创作者，致力于在数字世界中创造美好体验。我热爱解决问题，并且总是在寻找新的创意挑战。</p>
+                <p class="translate" data-key="story-p2">我的专业经验包括网页设计、前端开发和用户体验设计。我相信，优秀的设计不仅仅是美观，更应该是实用和有意义的。</p>
                 
                 <div class="skill-bars">
                     <div class="skill-bar">
                         <div class="skill-info">
-                            <span>网页设计</span>
+                            <span class="translate" data-key="web-design">网页设计</span>
                             <span>90%</span>
                         </div>
                         <div class="skill-progress">
@@ -714,7 +737,7 @@
                     
                     <div class="skill-bar">
                         <div class="skill-info">
-                            <span>前端开发</span>
+                            <span class="translate" data-key="frontend">前端开发</span>
                             <span>85%</span>
                         </div>
                         <div class="skill-progress">
@@ -724,7 +747,7 @@
                     
                     <div class="skill-bar">
                         <div class="skill-info">
-                            <span>用户体验</span>
+                            <span class="translate" data-key="ux">用户体验</span>
                             <span>80%</span>
                         </div>
                         <div class="skill-progress">
@@ -738,7 +761,7 @@
 
     <!-- 项目部分 -->
     <section id="projects" class="section projects">
-        <h2 class="section-title">我的项目</h2>
+        <h2 class="section-title translate" data-key="my-projects">我的项目</h2>
         <div class="projects-grid" id="projectsGrid">
             <!-- 项目卡片将通过JavaScript动态添加 -->
         </div>
@@ -746,47 +769,47 @@
 
     <!-- 联系部分 -->
     <section id="contact" class="section">
-        <h2 class="section-title">联系我</h2>
+        <h2 class="section-title translate" data-key="contact-me">联系我</h2>
         <div class="contact-content">
             <div class="contact-info">
-                <h3>保持联系</h3>
+                <h3 class="translate" data-key="stay-in-touch">保持联系</h3>
                 <div class="contact-method">
                     <div class="contact-icon">📧</div>
                     <div>
-                        <h4>邮箱</h4>
-                        <p>your.email@example.com</p>
+                        <h4 class="translate" data-key="email">邮箱</h4>
+                        <p>hengchengqwe@gmail.com</p>
                     </div>
                 </div>
                 <div class="contact-method">
-                    <div class="contact-icon">📱</div>
+                    <div class="contact-icon">🔗</div>
                     <div>
-                        <h4>电话</h4>
-                        <p>+86 123 4567 8901</p>
+                        <h4>LinkedIn</h4>
+                        <p><a href="https://www.linkedin.com/in/heng-cheng-7399821b4/" target="_blank" style="color: inherit; text-decoration: underline;">Heng Cheng</a></p>
                     </div>
                 </div>
                 <div class="contact-method">
                     <div class="contact-icon">📍</div>
                     <div>
-                        <h4>位置</h4>
-                        <p>深圳市，中国</p>
+                        <h4 class="translate" data-key="location">位置</h4>
+                        <p class="translate" data-key="location-value">深圳市，中国</p>
                     </div>
                 </div>
             </div>
             <div class="contact-form">
                 <form id="contactForm">
                     <div class="form-group">
-                        <label for="name" class="form-label">姓名</label>
+                        <label for="name" class="form-label translate" data-key="name">姓名</label>
                         <input type="text" id="name" class="form-input" required>
                     </div>
                     <div class="form-group">
-                        <label for="email" class="form-label">邮箱</label>
+                        <label for="email" class="form-label translate" data-key="email">邮箱</label>
                         <input type="email" id="email" class="form-input" required>
                     </div>
                     <div class="form-group">
-                        <label for="message" class="form-label">留言</label>
+                        <label for="message" class="form-label translate" data-key="message">留言</label>
                         <textarea id="message" class="form-textarea" required></textarea>
                     </div>
-                    <button type="submit" class="submit-btn btn-hover">发送消息</button>
+                    <button type="submit" class="submit-btn btn-hover translate" data-key="send-message">发送消息</button>
                 </form>
             </div>
         </div>
@@ -801,8 +824,8 @@
                 <a href="#" class="social-link">tw</a>
                 <a href="#" class="social-link">ig</a>
             </div>
-            <p>感谢您访问我的个人网站。我期待与您合作！</p>
-            <p class="copyright">© 2025 YourName. 版权所有。</p>
+            <p class="translate" data-key="thank-you">感谢您访问我的个人网站。我期待与您合作！</p>
+            <p class="copyright translate" data-key="copyright">© 2025 你的名字. 版权所有。</p>
         </div>
     </footer>
 
@@ -810,31 +833,82 @@
     <div class="back-to-top" id="backToTop">↑</div>
 
     <script>
-        // 项目数据
-        const projects = [
-            {
-                title: "创意作品集网站",
-                image: "/api/placeholder/600/400",
-                tags: ["网页设计", "前端开发"],
-                description: "为一位艺术家设计的现代作品集网站，展示其各种创意项目。",
-                link: "#"
+        // 翻译数据
+        const translations = {
+            "zh": {
+                "yourname": "你的名字",
+                "home": "首页",
+                "about": "关于我",
+                "projects": "项目",
+                "contact": "联系",
+                "greeting": "你好，我是 ",
+                "intro": "欢迎来到我的个人网站。我是一位热衷于创造精彩数字体验的专业人士。",
+                "view-projects": "查看我的作品",
+                "about-me": "关于我",
+                "my-story": "我的故事",
+                "story-p1": "我是一位充满热情的创作者，致力于在数字世界中创造美好体验。我热爱解决问题，并且总是在寻找新的创意挑战。",
+                "story-p2": "我的专业经验包括网页设计、前端开发和用户体验设计。我相信，优秀的设计不仅仅是美观，更应该是实用和有意义的。",
+                "web-design": "网页设计",
+                "frontend": "前端开发",
+                "ux": "用户体验",
+                "my-projects": "我的项目",
+                "project1-title": "创意作品集网站",
+                "project1-desc": "为一位艺术家设计的现代作品集网站，展示其各种创意项目。",
+                "project2-title": "电子商务平台",
+                "project2-desc": "设计并开发的在线购物平台，拥有现代用户界面和流畅的用户体验。",
+                "project3-title": "旅行应用界面",
+                "project3-desc": "为旅行爱好者设计的应用界面，帮助用户规划旅行和发现新地点。",
+                "view-details": "查看详情",
+                "contact-me": "联系我",
+                "stay-in-touch": "保持联系",
+                "email": "邮箱",
+                "location": "位置",
+                "location-value": "深圳市，中国",
+                "name": "姓名",
+                "message": "留言",
+                "send-message": "发送消息",
+                "thank-you": "感谢您访问我的个人网站。我期待与您合作！",
+                "copyright": "© 2025 你的名字. 版权所有。",
+                "thank-message": "感谢您的留言，{{name}}！我们会尽快回复您。"
             },
-            {
-                title: "电子商务平台",
-                image: "/api/placeholder/600/400",
-                tags: ["UI/UX", "响应式设计"],
-                description: "设计并开发的在线购物平台，拥有现代用户界面和流畅的用户体验。",
-                link: "#"
-            },
-            {
-                title: "旅行应用界面",
-                image: "/api/placeholder/600/400",
-                tags: ["移动设计", "原型制作"],
-                description: "为旅行爱好者设计的应用界面，帮助用户规划旅行和发现新地点。",
-                link: "#"
+            "en": {
+                "yourname": "Your Name",
+                "home": "Home",
+                "about": "About",
+                "projects": "Projects",
+                "contact": "Contact",
+                "greeting": "Hello, I am ",
+                "intro": "Welcome to my personal website. I am a professional passionate about creating amazing digital experiences.",
+                "view-projects": "View My Work",
+                "about-me": "About Me",
+                "my-story": "My Story",
+                "story-p1": "I am a passionate creator dedicated to creating wonderful experiences in the digital world. I love solving problems and am always looking for new creative challenges.",
+                "story-p2": "My professional experience includes web design, front-end development, and user experience design. I believe that good design is not just beautiful, but should be practical and meaningful.",
+                "web-design": "Web Design",
+                "frontend": "Frontend Development",
+                "ux": "User Experience",
+                "my-projects": "My Projects",
+                "project1-title": "Creative Portfolio Website",
+                "project1-desc": "A modern portfolio website designed for an artist to showcase various creative projects.",
+                "project2-title": "E-commerce Platform",
+                "project2-desc": "Designed and developed online shopping platform with modern UI and smooth UX.",
+                "project3-title": "Travel App Interface",
+                "project3-desc": "App interface designed for travel enthusiasts to help plan trips and discover new places.",
+                "view-details": "View Details",
+                "contact-me": "Contact Me",
+                "stay-in-touch": "Stay In Touch",
+                "email": "Email",
+                "location": "Location",
+                "location-value": "Shenzhen, China",
+                "name": "Name",
+                "message": "Message",
+                "send-message": "Send Message",
+                "thank-you": "Thank you for visiting my personal website. I look forward to working with you!",
+                "copyright": "© 2025 Your Name. All Rights Reserved.",
+                "thank-message": "Thank you for your message, {{name}}! We will reply to you as soon as possible."
             }
-        ];
-
+        };
+        
         // DOM加载完成后执行
         document.addEventListener('DOMContentLoaded', function() {
             // 打字效果
@@ -955,8 +1029,17 @@
             const toggleTheme = document.getElementById('toggleTheme');
             toggleTheme.addEventListener('click', function() {
                 document.body.classList.toggle('dark-mode');
+                localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode'));
                 
                 if (document.body.classList.contains('dark-mode')) {
                     toggleTheme.textContent = '☀️';
                 } else {
                     toggleTheme.textContent = '🌙';
+                }
+            });
+            
+            // 加载保存的主题设置
+            if(localStorage.getItem('dark-mode') === 'true') {
+                document.body.classList.add('dark-mode');
+                toggleTheme.textContent = '☀️';
+            }
