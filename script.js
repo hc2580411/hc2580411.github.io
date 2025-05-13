@@ -121,3 +121,34 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+
+// 添加加载动画初始化逻辑
+function initLoadingAnimation() {
+  const overlay = document.createElement('div');
+  overlay.className = 'loading-overlay';
+  
+  const chars = ['H', 'HE', 'HEN', 'HENG', 'HENG C', 'HENG CH', 'HENG CHE', 'HENG CHEN','HENG CHENG'];
+  
+  chars.forEach((text, index) => {
+    setTimeout(() => {
+      const div = document.createElement('div');
+      div.style.animation = `revealText 0.5s ease forwards`;
+      div.textContent = text;
+      overlay.appendChild(div);
+    }, index * 250);
+  });
+
+  document.body.prepend(overlay);
+  document.body.style.overflow = 'hidden';
+
+  // 动画完成处理
+  setTimeout(() => {
+    overlay.remove();
+    document.body.style.overflow = '';
+    document.querySelector('.name').style.opacity = '1';
+  }, 3500);
+}
+
+// 立即执行加载动画
+initLoadingAnimation();
+
