@@ -23,7 +23,7 @@
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Poppins', 'Space Grotesk', 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg-light);
     color: var(--text-light);
     transition: background var(--transition), color var(--transition);
