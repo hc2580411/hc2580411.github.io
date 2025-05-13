@@ -290,9 +290,9 @@
   /* Skills Section */
   .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min-content, auto));
-      white-space: nowrap;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 2rem;
+    width: 100%;
   }
 
   .skill-category h3 {
@@ -307,8 +307,8 @@
   }
 
   .skill-items {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min-content, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
   }
 
@@ -322,6 +322,9 @@
     font-weight: 500;
     transition: all var(--transition);
     border: 1px solid var(--border-light);
+    min-width: 200px;
+    flex-shrink: 0;
+    white-space: normal;
   }
 
   body.dark .skill-item {
