@@ -1082,6 +1082,36 @@
             }
         }
     </style>
+<script>
+    // 主题切换功能
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+
+    // 语言切换功能
+    function toggleLang() {
+        const html = document.documentElement;
+        const newLang = html.lang === 'zh' ? 'en' : 'zh';
+        html.lang = newLang;
+        localStorage.setItem('language', newLang);
+    }
+
+    // 初始化加载设置
+    window.addEventListener('DOMContentLoaded', () => {
+        // 主题初始化
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.classList.toggle('dark-mode', savedTheme === 'dark');
+
+        // 语言初始化
+        const savedLang = localStorage.getItem('language') || 'zh';
+        document.documentElement.lang = savedLang;
+
+        // 绑定事件
+        document.querySelector('.toggle-theme').addEventListener('click', toggleTheme);
+        document.querySelector('.toggle-lang').addEventListener('click', toggleLang);
+    });
+</script>
 </head>
 <body>
     <!-- 导航栏 -->
