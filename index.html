@@ -5,52 +5,138 @@
   <title>Heng Cheng | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- 背景粒子互动 -->
+  <!-- Background Particles -->
   <div id="particles-js"></div>
 
-  <!-- 控件 -->
+  <!-- Header Controls -->
   <header>
     <h1 class="name">Heng Cheng</h1>
     <div class="controls">
-      <button id="lang-toggle">
+      <button id="lang-toggle" aria-label="Change Language">
         <img src="assets/en.svg" alt="Language" id="lang-icon">
       </button>
-      <button id="theme-toggle">
+      <button id="theme-toggle" aria-label="Toggle Dark Mode">
         <img src="assets/sun.svg" alt="Theme" id="theme-icon">
       </button>
     </div>
   </header>
 
-  <!-- 主要内容 -->
+  <!-- Main Content -->
   <main>
-    <section id="about">
-      <h2 data-en="Experience" data-zh="个人经历">Experience</h2>
-      <p data-en="Computer Science student with a passion for backend development and AI."
-         data-zh="计算机科学专业学生，热衷于后端开发和人工智能。">
-         Computer Science student with a passion for backend development and AI.
-      </p>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <h2 class="hero-title" data-en="Hello, I'm Heng Cheng" data-zh="你好，我是程恒">Hello, I'm Heng Cheng</h2>
+        <p class="hero-subtitle" data-en="Backend Developer & AI Enthusiast" data-zh="后端开发者 & AI 爱好者">Backend Developer & AI Enthusiast</p>
+        <div class="hero-cta">
+          <a href="#contact" class="cta-button" data-en="Contact Me" data-zh="联系我">Contact Me</a>
+          <a href="#projects" class="cta-button secondary" data-en="View Projects" data-zh="查看项目">View Projects</a>
+        </div>
+      </div>
     </section>
 
-    <section id="projects">
-      <h2 data-en="Projects" data-zh="个人项目">Projects</h2>
-      <div class="project">
-        <img src="assets/project1.svg" alt="Project 1">
-        <p data-en="An inventory management system for Arma 3." data-zh="一个用于 Arma 3 的库存管理系统。">
-          An inventory management system for Arma 3.
+    <!-- About Section -->
+    <section id="about">
+      <h2 data-en="About Me" data-zh="关于我">About Me</h2>
+      <div class="about-content">
+        <p data-en="Computer Science student with a passion for backend development and AI. I enjoy solving complex problems and building efficient systems that make a difference." 
+           data-zh="计算机科学专业学生，热衷于后端开发和人工智能。我喜欢解决复杂问题并构建高效系统，以产生积极影响。">
+          Computer Science student with a passion for backend development and AI. I enjoy solving complex problems and building efficient systems that make a difference.
+        </p>
+        <p data-en="Currently focused on cloud-native applications and machine learning integration." 
+           data-zh="目前专注于云原生应用和机器学习集成。">
+          Currently focused on cloud-native applications and machine learning integration.
         </p>
       </div>
     </section>
 
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2 data-en="Skills" data-zh="技能">Skills</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3 data-en="Programming Languages" data-zh="编程语言">Programming Languages</h3>
+          <div class="skill-items">
+            <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+            <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+            <div class="skill-item"><i class="fab fa-java"></i> Java</div>
+            <div class="skill-item"><i class="fas fa-code"></i> C++</div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 data-en="Technologies" data-zh="技术">Technologies</h3>
+          <div class="skill-items">
+            <div class="skill-item"><i class="fab fa-node-js"></i> Node.js</div>
+            <div class="skill-item"><i class="fas fa-database"></i> SQL/NoSQL</div>
+            <div class="skill-item"><i class="fab fa-docker"></i> Docker</div>
+            <div class="skill-item"><i class="fab fa-aws"></i> AWS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2 data-en="Projects" data-zh="个人项目">Projects</h2>
+      <div class="projects-container">
+        <div class="project">
+          <img src="assets/project1.svg" alt="Project 1">
+          <div class="project-info">
+            <h3 data-en="Inventory Management System" data-zh="库存管理系统">Inventory Management System</h3>
+            <p data-en="An inventory management system for Arma 3 with real-time tracking and analytics." 
+               data-zh="一个用于 Arma 3 的库存管理系统，具有实时跟踪和分析功能。">
+              An inventory management system for Arma 3 with real-time tracking and analytics.
+            </p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>Flask</span>
+              <span>MongoDB</span>
+            </div>
+          </div>
+        </div>
+        <div class="project">
+          <img src="assets/project1.svg" alt="Project 2">
+          <div class="project-info">
+            <h3 data-en="AI Chat Assistant" data-zh="AI 聊天助手">AI Chat Assistant</h3>
+            <p data-en="A conversational AI assistant that helps users with daily tasks and information retrieval." 
+               data-zh="一个会话式 AI 助手，帮助用户完成日常任务和信息检索。">
+              A conversational AI assistant that helps users with daily tasks and information retrieval.
+            </p>
+            <div class="project-tech">
+              <span>JavaScript</span>
+              <span>Node.js</span>
+              <span>TensorFlow</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
     <section id="contact">
       <h2 data-en="Contact" data-zh="联系方式">Contact</h2>
-      <ul>
-        <li>Email: chengheng@example.com</li>
-        <li>GitHub: github.com/hengcheng</li>
-      </ul>
+      <div class="contact-content">
+        <p data-en="Feel free to reach out to me for collaboration or questions." 
+           data-zh="如有合作或问题，请随时与我联系。">
+          Feel free to reach out to me for collaboration or questions.
+        </p>
+        <ul class="contact-list">
+          <li><i class="fas fa-envelope"></i> <span>Email:</span> chengheng@example.com</li>
+          <li><i class="fab fa-github"></i> <span>GitHub:</span> github.com/hengcheng</li>
+          <li><i class="fab fa-linkedin"></i> <span>LinkedIn:</span> linkedin.com/in/hengcheng</li>
+        </ul>
+      </div>
     </section>
   </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="current-year"></span> Heng Cheng. All rights reserved.</p>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <script src="script.js"></script>
