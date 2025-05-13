@@ -49,13 +49,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
     document.body.classList.add('dark');
-    themeIcon.src = 'assets/moon.svg';
+    themeIcon.src = 'assets/moon.png';
   }
 
   themeBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark');
     const isDark = document.body.classList.contains('dark');
-    themeIcon.src = isDark ? 'assets/moon.svg' : 'assets/sun.svg';
+    themeIcon.src = isDark ? 'assets/moon.png' : 'assets/sun.png';
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
     
     // Update particles color based on theme
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   langBtn.addEventListener('click', () => {
     currentLang = currentLang === 'en' ? 'zh' : 'en';
-    langIcon.src = currentLang === 'en' ? 'assets/en.svg' : 'assets/zh.svg';
+    langIcon.src = currentLang === 'en' ? 'assets/en.png' : 'assets/zh.svg';
     updateLanguage(currentLang);
     localStorage.setItem('language', currentLang);
   });
