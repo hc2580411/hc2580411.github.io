@@ -36,7 +36,55 @@
     color: var(--text-dark);
   }
   
-  /* Header Styling */
+  /* Loading Animation */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: hideLoader 1s 2s forwards;
+}
+
+.loader-letter {
+  font-size: 30vw;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-light), #9c7aff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  .loader-letter {
+    animation: logoTransition 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  
+  @keyframes logoTransition {
+    100% {
+      transform: scale(0.15) translate(-360%, -220%);
+    }
+  }
+}
+
+@keyframes hideLoader {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+body.dark .loader-container {
+  background: var(--bg-dark);
+}
+
+body.dark .loader-letter {
+  background: linear-gradient(135deg, var(--accent-dark), #b69aff);
+}
+
+/* Header Styling */
   header {
     display: flex;
     justify-content: space-between;
