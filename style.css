@@ -60,20 +60,24 @@
 .loader-letter {
   font-size: 30vw;
   font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   transform-origin: 50% 100%;
   background: linear-gradient(135deg, var(--accent-light), #9c7aff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  .loader-letter {
-    animation: logoTransition 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  }
+  animation: logoTransition 2s cubic-bezier(0.4, 0, 0.2, 1) forwards, shrinkToNav 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   
   @keyframes logoTransition {
-  100% {
-    transform: scale(0.15) translate(-360%, -220%);
-  }
+100% {
+  transform: scale(0.15) translate(-360%, -220%);
+}
+}
+
+@keyframes shrinkToNav {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.5); }
+  100% { transform: scale(0.15) translate(-360%, -220%); }
 }
 
 @keyframes loaderAnim {
