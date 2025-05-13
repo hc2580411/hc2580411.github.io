@@ -49,11 +49,18 @@
   align-items: center;
   z-index: 1000;
   animation: hideLoader 1s 2s forwards;
+  pointer-events: none;
+  user-select: none;
+  .loader-container {
+    pointer-events: none !important;
+    user-select: none !important;
+  }
 }
 
 .loader-letter {
   font-size: 30vw;
-  font-weight: 700;
+  font-weight: 500;
+  transform-origin: 50% 100%;
   background: linear-gradient(135deg, var(--accent-light), #9c7aff);
   -webkit-background-clip: text;
   background-clip: text;
@@ -73,6 +80,12 @@
   to {
     opacity: 0;
     visibility: hidden;
+  }
+}
+
+@keyframes letterShrink {
+  100% {
+    transform: scale(0.4) translateY(-45vh) translateX(5%);
   }
 }
 
