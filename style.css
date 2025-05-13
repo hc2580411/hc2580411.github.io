@@ -218,13 +218,22 @@
     background: linear-gradient(135deg, rgba(74, 107, 255, 0.1), rgba(156, 122, 255, 0.1));
   }
 
+  /* Add smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+  
+  /* Animated gradient for hero title */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
   .hero-title {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--accent-light), #9c7aff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    animation: gradientShift 8s ease infinite;
+    background-size: 200% 200%;
   }
 
   body.dark .hero-title {

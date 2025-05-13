@@ -109,16 +109,14 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('current-year').textContent = new Date().getFullYear();
 
   // Add scroll animations
+  // Scroll-triggered animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+      entry.target.classList.toggle('visible', entry.isIntersecting);
     });
-  }, { threshold: 0.1 });
-
+  }, { threshold: 0.15 });
+  
   document.querySelectorAll('section').forEach(section => {
-    section.classList.add('fade-in-section');
     observer.observe(section);
   });
 });
