@@ -290,7 +290,8 @@
   /* Skills Section */
   .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min-content, auto));
+    grid-template-columns: repeat(auto-fill, minmax(min-content, auto));
+      white-space: nowrap;
     gap: 2rem;
   }
 
@@ -346,7 +347,8 @@
   /* Projects Section */
   .projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min-content, auto));
+    grid-template-columns: repeat(auto-fill, minmax(min-content, auto));
+      white-space: nowrap;
     gap: 2rem;
   }
 
