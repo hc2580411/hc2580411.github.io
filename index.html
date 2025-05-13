@@ -1095,7 +1095,42 @@
         const newLang = html.lang === 'zh' ? 'en' : 'zh';
         html.lang = newLang;
         localStorage.setItem('language', newLang);
+        updateContent();
+        document.getElementById('toggleLang').textContent = newLang === 'zh' ? 'EN' : '中文';
     }
+
+    // 多语言内容更新
+    function updateContent() {
+        const elements = document.querySelectorAll('[data-key]');
+        elements.forEach(el => {
+            const key = el.dataset.key;
+            el.textContent = langPack[document.documentElement.lang][key];
+        });
+    }
+
+    // 多语言包
+    const langPack = {
+        zh: {
+            home: '首页',
+            about: '关于我',
+            projects: '项目',
+            contact: '联系',
+            yourname: '程恒',
+            greeting: '你好，我是程恒',
+            intro: '欢迎来到我的个人网站。我是一位热衷于创造精彩数字体验的专业人士。',
+            'view-projects': '查看我的作品'
+        },
+        en: {
+            home: 'Home',
+            about: 'About',
+            projects: 'Projects',
+            contact: 'Contact',
+            yourname: 'Heng Cheng',
+            greeting: 'Hello, I\'m Heng Cheng',
+            intro: 'Welcome to my portfolio. I\'m a professional passionate about creating exceptional digital experiences.',
+            'view-projects': 'View Projects'
+        }
+    };
 
     // 初始化加载设置
     window.addEventListener('DOMContentLoaded', () => {
@@ -1106,10 +1141,12 @@
         // 语言初始化
         const savedLang = localStorage.getItem('language') || 'zh';
         document.documentElement.lang = savedLang;
+        updateContent();
+        document.getElementById('toggleLang').textContent = savedLang === 'zh' ? 'EN' : '中文';
 
         // 绑定事件
         document.querySelector('.toggle-theme').addEventListener('click', toggleTheme);
-        document.querySelector('.toggle-lang').addEventListener('click', toggleLang);
+        document.getElementById('toggleLang').addEventListener('click', toggleLang);
     });
 </script>
 </head>
