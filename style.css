@@ -36,77 +36,7 @@
     color: var(--text-dark);
   }
   
-  /* Loading Animation */
-.loader-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: var(--bg-light);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  animation: hideLoader 1s 2s forwards;
-  pointer-events: none;
-  user-select: none;
-  .loader-container {
-    pointer-events: none !important;
-    user-select: none !important;
-  }
-}
-
-.loader-letter {
-  font-size: 30vw;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 400;
-  transform-origin: 50% 100%;
-  background: linear-gradient(135deg, var(--accent-light), #9c7aff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: logoTransition 2s cubic-bezier(0.4, 0, 0.2, 1) forwards, shrinkToNav 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   
-  @keyframes logoTransition {
-100% {
-  transform: scale(0.15) translate(-360%, -220%);
-}
-}
-
-@keyframes shrinkToNav {
-  0% { transform: scale(1); }
-  50% { transform: scale(0.5); }
-  100% { transform: scale(0.15) translate(-360%, -220%); }
-}
-
-@keyframes loaderAnim {
-  0% { transform: scale(1) translateY(0); }
-  50% { transform: scale(0.8) translateY(20px); }
-  100% { transform: scale(1) translateY(0); }
-}
-}
-
-@keyframes hideLoader {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-@keyframes letterShrink {
-  100% {
-    transform: scale(0.4) translateY(-45vh) translateX(5%);
-  }
-}
-
-body.dark .loader-container {
-  background: var(--bg-dark);
-}
-
-body.dark .loader-letter {
-  background: linear-gradient(135deg, var(--accent-dark), #b69aff);
-}
 
 /* Header Styling */
   header {
@@ -527,22 +457,7 @@ body.dark .loader-letter {
   }
 
   /* Animations */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Scroll Animations */
-  .fade-in-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-
-  .fade-in-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  
 
   /* Responsive Design */
   @media (max-width: 768px) {

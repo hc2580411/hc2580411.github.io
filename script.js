@@ -123,24 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// 添加加载动画控制逻辑
-const loaderContainer = document.querySelector('.loader-container');
-const loaderLetter = document.querySelector('.loader-letter');
 
-// 动画结束后隐藏加载界面
-loaderLetter.addEventListener('animationend', () => {
-  loaderContainer.style.display = 'none';
-  document.body.style.pointerEvents = 'auto';
-});
-
-// 初始化时禁用交互
-document.body.style.pointerEvents = 'none';
-
-// 动画结束后恢复交互
-loaderLetter.addEventListener('animationend', () => {
-  loaderContainer.style.display = 'none';
-  document.body.style.pointerEvents = 'auto';
-});
 
 // Initialize particles background with custom configuration
 document.addEventListener('DOMContentLoaded', () => {
@@ -266,3 +249,4 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(section);
   });
 });
+
