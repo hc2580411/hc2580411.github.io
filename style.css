@@ -329,8 +329,30 @@ body.dark .loading-overlay {
   }
 
   body.dark .cta-button.secondary {
-    border-color: var(--accent-dark);
-    color: var(--accent-dark);
+    border-width: 3px;
+    background: rgba(108, 143, 255, 0.1);
+    }
+    
+    body.dark .cta-button.secondary:hover {
+    background: var(--accent-dark);
+    color: var(--bg-dark);
+    }
+    
+    body.dark .controls button:hover {
+    box-shadow: 0 0 10px var(--accent-dark);
+    }
+
+  body.dark .controls button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--accent-dark);
+  }
+
+  body.dark .controls button:hover {
+    background: var(--accent-dark);
+  }
+
+  body.dark .controls button:hover img {
+    filter: brightness(0) invert(1);
   }
 
   /* About Section */
