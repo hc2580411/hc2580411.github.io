@@ -365,9 +365,10 @@ body.dark .loading-overlay {
   /* Skills Section */
   .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 2rem;
-    width: 100%;
+    height: min-content;
+    grid-template-columns: repeat(auto-fill, minmax(auto-fill, auto-fill));
+    gap: 0.5rem;
+    width: auto;
   }
 
   .skill-category h3 {
@@ -558,7 +559,7 @@ body.dark .loading-overlay {
       hyphens: auto;
       max-width: 100%;
       padding: 0 1rem;
-      line-height: 1.6;
+      line-height: 1;
       box-sizing: border-box;
     }
 
