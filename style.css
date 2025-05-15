@@ -224,6 +224,61 @@ body.dark .loading-overlay {
     transform: scale(1.02);
   }
 
+  /* Education Section */
+  #education .education-content {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .education-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    transition: transform var(--transition);
+  }
+
+  .education-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .education-item h3 {
+    color: var(--accent-light);
+    margin: 0 0 1rem;
+    font-size: 1.2rem;
+  }
+
+  .education-item ul {
+    list-style: none;
+    padding-left: 1.5rem;
+  }
+
+  .education-item li {
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+
+  .education-item li::before {
+    content: '▹';
+    position: absolute;
+    left: -1.3em;
+    color: var(--accent-light);
+  }
+
+  body.dark .education-item {
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  body.dark .education-item h3 {
+    color: var(--accent-dark);
+  }
+
+  @media (max-width: 768px) {
+    #education .education-content {
+      grid-template-columns: 1fr;
+    }
+  }
+
   /* Contact Section */
   #contact ul {
     list-style: none;
@@ -483,6 +538,61 @@ body.dark .loading-overlay {
   body.dark .project-tech span {
     background: rgba(108, 143, 255, 0.2);
     color: var(--accent-dark);
+  }
+
+  /* Education Section */
+  #education .education-content {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .education-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    transition: transform var(--transition);
+  }
+
+  .education-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .education-item h3 {
+    color: var(--accent-light);
+    margin: 0 0 1rem;
+    font-size: 1.2rem;
+  }
+
+  .education-item ul {
+    list-style: none;
+    padding-left: 1.5rem;
+  }
+
+  .education-item li {
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+
+  .education-item li::before {
+    content: '▹';
+    position: absolute;
+    left: -1.3em;
+    color: var(--accent-light);
+  }
+
+  body.dark .education-item {
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  body.dark .education-item h3 {
+    color: var(--accent-dark);
+  }
+
+  @media (max-width: 768px) {
+    #education .education-content {
+      grid-template-columns: 1fr;
+    }
   }
 
   /* Contact Section */
