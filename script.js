@@ -78,12 +78,16 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLanguage(currentLang);
   }
 
+  // 更新后的语言切换逻辑
   langBtn.addEventListener('click', () => {
-    currentLang = currentLang === 'en' ? 'zh' : 'en';
-    langIcon.src = currentLang === 'en' ? 'assets/en.png' : 'assets/zh.svg';
-    updateLanguage(currentLang);
-    localStorage.setItem('language', currentLang);
+      currentLang = currentLang === 'en' ? 'zh' : 'en';
+      langIcon.src = currentLang === 'en' ? langIcon.dataset.zh : langIcon.dataset.en;
+      updateLanguage(currentLang);
+      localStorage.setItem('language', currentLang);
   });
+  
+  // 新增初始化逻辑
+  langIcon.src = currentLang === 'en' ? langIcon.dataset.zh : langIcon.dataset.en;
 
   function updateLanguage(lang) {
     document.querySelectorAll('[data-en]').forEach(el => {
