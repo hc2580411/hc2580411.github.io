@@ -73,7 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Apply saved language preference
   if (currentLang === 'zh') {
     langIcon.src = 'assets/zh.svg';
-    updateLanguage('zh');
+    updateLanguage(currentLang);
+  } else {
+    updateLanguage(currentLang);
   }
 
   langBtn.addEventListener('click', () => {

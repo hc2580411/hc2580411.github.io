@@ -213,12 +213,12 @@ body.dark .loading-overlay {
 
   .project img {
     width: 100%;
-    max-width: 500px;
+    height: auto;
     object-fit: cover;
     border-radius: var(--border-radius);
     transition: all var(--transition);
     box-shadow: var(--box-shadow);
-  }
+}
 
   .project:hover img {
     transform: scale(1.02);
@@ -551,6 +551,15 @@ body.dark .loading-overlay {
     
     section {
       padding: 1.5rem;
+    }
+
+    .project-info p {
+      overflow-wrap: break-word;
+      hyphens: auto;
+      max-width: 100%;
+      padding: 0 1rem;
+      line-height: 1.6;
+      box-sizing: border-box;
     }
 
     .hero-title {
