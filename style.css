@@ -654,6 +654,12 @@ body.dark .loading-overlay {
   @media (max-width: 768px) {
     header {
       padding: 1em 1.5em;
+      flex-direction: column;
+      gap: 1em;
+    }
+
+    .name {
+      font-size: 1.8rem;
     }
     
     main {
@@ -662,28 +668,43 @@ body.dark .loading-overlay {
     
     section {
       padding: 1.5rem;
+      margin-bottom: 3em;
+    }
+
+    section h2 {
+      font-size: 1.6rem;
     }
 
     .project-info p {
       overflow-wrap: break-word;
       hyphens: auto;
       max-width: 100%;
-      padding: 0 1rem;
-      line-height: 1;
+      padding: 0;
+      line-height: 1.5;
       box-sizing: border-box;
     }
 
+    .hero-section {
+      padding: 3rem 1.5rem;
+    }
+
     .hero-title {
-      font-size: 2.2rem;
+      font-size: 2rem;
     }
 
     .hero-subtitle {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     .hero-cta {
       flex-direction: column;
       align-items: center;
+      gap: 0.8rem;
+    }
+
+    .cta-button {
+      padding: 0.7rem 1.5rem;
+      font-size: 0.95rem;
     }
 
     .projects-container {
@@ -692,6 +713,20 @@ body.dark .loading-overlay {
 
     .skills-container {
       grid-template-columns: 1fr;
+    }
+
+    .skill-item {
+      min-width: unset;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .contact-list li {
+      font-size: 1rem;
+    }
+
+    footer {
+      padding: 1.5rem;
     }
   }
   
