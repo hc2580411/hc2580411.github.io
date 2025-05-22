@@ -277,6 +277,18 @@ body.dark .loading-overlay {
     #education .education-content {
       grid-template-columns: 1fr;
     }
+
+    /* Contact Section adjustments for mobile */
+    .contact-list li {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.2rem;
+    }
+
+    .contact-list li span, .contact-list li a {
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
   }
 
   /* Contact Section */
@@ -592,6 +604,18 @@ body.dark .loading-overlay {
   @media (max-width: 768px) {
     #education .education-content {
       grid-template-columns: 1fr;
+    }
+
+    /* Contact Section adjustments for mobile */
+    .contact-list li {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.2rem;
+    }
+
+    .contact-list li span, .contact-list li a {
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
   }
 
