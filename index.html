@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Heng Cheng | Portfolio</title>
+  <title>Heng Cheng | Backend Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Heng Cheng, a Computer Science student and Backend Developer passionate about AI and efficient systems.">
+  <meta name="description"
+    content="Portfolio of Heng Cheng, a Computer Science student and Backend Developer passionate about AI and efficient systems.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/icon.png">
 </head>
+
 <body>
 
-  <!-- Background Particles -->
-  <div id="particles-js"></div>
+  <!-- Animated Gradient Background -->
+  <div class="gradient-background"></div>
 
   <!-- Header Controls -->
   <header>
     <div class="header-content">
-      <h1 class="name">Heng Cheng</h1>
+      <a href="#" class="name">Heng Cheng</a>
       <nav class="controls">
         <button id="lang-toggle" aria-label="Change Language" class="control-btn">
-          <img src="assets/zh.svg" alt="" id="lang-icon" data-en="assets/en.png" data-zh="assets/zh.svg" aria-hidden="true">
+          <img src="assets/zh.svg" alt="" id="lang-icon" data-en="assets/en.png" data-zh="assets/zh.svg"
+            aria-hidden="true">
           <span class="sr-only">Switch Language</span>
         </button>
         <button id="theme-toggle" aria-label="Toggle Dark Mode" class="control-btn">
@@ -37,116 +45,101 @@
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
       <div class="hero-content">
-        <h2 class="hero-title" data-en="Hello, I'm Heng Cheng" data-zh="你好，我是程恒">Hello, I'm Heng Cheng</h2>
-        <p class="hero-subtitle" data-en="Backend Developer & AI Enthusiast" data-zh="后端开发者 & AI 爱好者">Backend Developer & AI Enthusiast</p>
+        <span class="hero-greeting" data-en="Hi, my name is" data-zh="你好，我是">Hi, my name is</span>
+        <h1 class="hero-title" data-en="Heng Cheng" data-zh="程恒">Heng Cheng</h1>
+        <h2 class="hero-subtitle" data-en="I build things for the backend." data-zh="我专注于后端开发。">I build things for the
+          backend.</h2>
+        <p class="hero-description"
+          data-en="I'm a Computer Science student specializing in building (and occasionally designing) exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products."
+          data-zh="我是一名计算机科学专业的学生，专注于构建（偶尔也设计）卓越的数字体验。目前，我专注于构建易于访问、以人为本的产品。">
+          I'm a Computer Science student specializing in building (and occasionally designing) exceptional digital
+          experiences. Currently, I'm focused on building accessible, human-centered products.
+        </p>
         <div class="hero-cta">
-          <a href="#contact" class="cta-button primary" data-en="Contact Me" data-zh="联系我">Contact Me</a>
-          <a href="#projects" class="cta-button secondary" data-en="View Projects" data-zh="查看项目">View Projects</a>
+          <a href="#projects" class="cta-button primary" data-en="Check out my work" data-zh="查看我的作品">Check out my
+            work</a>
+          <a href="#contact" class="cta-button secondary" data-en="Contact Me" data-zh="联系我">Contact Me</a>
         </div>
       </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="section-card">
-      <h2 data-en="About Me" data-zh="关于我">About Me</h2>
+      <h2 class="section-title" data-en="About Me" data-zh="关于我">About Me</h2>
       <div class="about-content">
-        <p data-en="Computer Science student with a passion for backend development and AI. I enjoy solving complex problems and building efficient systems that make a difference." 
-           data-zh="计算机科学专业学生，热衷于后端开发和人工智能。我喜欢解决复杂问题并构建高效系统，以产生积极影响。">
-          Computer Science student with a passion for backend development and AI. I enjoy solving complex problems and building efficient systems that make a difference.
-        </p>
-        <p data-en="I’m currently dedicating my time to learning various development frameworks and integrating them into my personal projects to gain practical experience." 
-           data-zh="目前我正在学习不同的软件框架，并将所学知识应用到实际项目中，以提升我的开发技能。">
-          I’m currently dedicating my time to learning various development frameworks and integrating them into my personal projects to gain practical experience.
-        </p>
-        <p data-en="Now looking for Summer internship opportunities within the UAE."
-           data-zh="正在积极寻找暑假实习机会，最好在阿联酋">
-           Now looking for Summer internship opportunities within the UAE.
-        </p>
-      </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="section-card">
-      <h2 data-en="Education" data-zh="教育背景">Education</h2>
-      <div class="education-content">
-        <article class="education-item">
-          <h3 data-en="University of Birmingham Dubai" data-zh="伯明翰大学迪拜分校">University of Birmingham Dubai</h3>
-          <p class="education-meta" data-en="BSc Computer Science | Second Year (Expected Graduation: 2026 summer)" 
-             data-zh="计算机科学 | 大二在读（预计2026年暑期毕业）">
-            BSc Computer Science | Second Year (Expected Graduation: 2026 summer)
+        <div class="about-text">
+          <p data-en="Hello! My name is Heng and I enjoy creating things that live on the internet. My interest in web development started back in 2022 when I decided to try editing custom Tumblr themes — turns out hacking together custom reblog buttons taught me a lot about HTML & CSS!"
+            data-zh="你好！我叫程恒，我喜欢在互联网上创造事物。我对网络开发的兴趣始于2022年，当时我决定尝试编辑自定义Tumblr主题——结果发现，拼凑自定义转发按钮教会了我很多关于HTML和CSS的知识！">
+            Hello! My name is Heng and I enjoy creating things that live on the internet. My interest in web development
+            started back in 2022 when I decided to try editing custom Tumblr themes — turns out hacking together custom
+            reblog buttons taught me a lot about HTML & CSS!
           </p>
-        </article>
-        <article class="education-item">
-          <h3 data-en="GEMS Education" data-zh="GEMS Education">GEMS Education</h3>
-          <p class="education-meta" data-en="A-levels" data-zh="A-levels 成绩">A-levels</p>
-          <ul class="education-list">
-            <li data-en="Mathematics: A*" data-zh="数学: A*">Mathematics: A*</li>
-            <li data-en="Computer Science: A" data-zh="计算机科学: A">Computer Science: A</li>
-            <li data-en="Physics: B" data-zh="物理: B">Physics: B</li>
-          </ul>
-        </article>
+          <p data-en="Fast-forward to today, and I’ve had the privilege of working on various personal projects and learning from the best. My main focus these days is building accessible, inclusive products and digital experiences for a variety of clients."
+            data-zh="快进到今天，我有幸参与了各种个人项目并向最优秀的人学习。如今，我的主要重点是为各种客户构建易于访问、包容性强的产品和数字体验。">
+            Fast-forward to today, and I’ve had the privilege of working on various personal projects and learning from
+            the best. My main focus these days is building accessible, inclusive products and digital experiences for a
+            variety of clients.
+          </p>
+          <p data-en="I am currently looking for Summer internship opportunities within the UAE."
+            data-zh="我目前正在阿联酋寻找暑期实习机会。">
+            I am currently looking for Summer internship opportunities within the UAE.
+          </p>
+        </div>
+        <!-- Optional: Add a profile picture here if available -->
       </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section-card">
-      <h2 data-en="Skills" data-zh="技能">Skills</h2>
-      <div class="skills-container">
-        <div class="skill-category">
-          <h3 data-en="Programming Languages" data-zh="编程语言">Programming Languages</h3>
-          <div class="skill-items">
-            <div class="skill-item"><i class="fab fa-python"></i> <span>Python</span></div>
-            <div class="skill-item"><i class="fab fa-js"></i> <span>JavaScript</span></div>
-            <div class="skill-item"><i class="fab fa-java"></i> <span>Java</span></div>
-            <div class="skill-item"><i class="fas fa-code"></i> <span>C</span></div>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3 data-en="DevOps" data-zh="开发工具">DevOps</h3>
-          <div class="skill-items">
-            <div class="skill-item"><i class="fab fa-github"></i> <span>Git</span></div>
-            <div class="skill-item"><i class="fas fa-terminal"></i> <span>WSL</span></div>
-            <div class="skill-item"><i class="fab fa-docker"></i> <span>Docker</span></div>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3 data-en="Languages" data-zh="语言能力">Languages</h3>
-          <div class="skill-items">
-            <div class="skill-item"><span data-en="Native Chinese" data-zh="母语中文">Native Chinese</span></div>
-            <div class="skill-item"><span data-en="Fluent English" data-zh="专业流利英文">Fluent English</span></div>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3 data-en="Frameworks" data-zh="开发框架">Frameworks</h3>
-          <div class="skill-items">
-            <div class="skill-item"><i class="fab fa-python"></i> <span>Django</span></div>
-            <div class="skill-item"><i class="fab fa-react"></i> <span>React</span></div>
-            <div class="skill-item"><i class="fab fa-java"></i> <span>Spring</span></div>
-            <div class="skill-item"><i class="fas fa-leaf"></i> <span>SpringBoot</span></div>
-          </div>
+    <!-- Experience Section (NEW) -->
+    <section id="experience" class="section-card">
+      <h2 class="section-title" data-en="Where I've Worked" data-zh="工作经历">Where I've Worked</h2>
+      <div class="experience-content">
+        <!-- Placeholder for future experience. Using Education as a placeholder for now if no work exp -->
+        <div class="experience-item">
+          <h3 class="exp-role" data-en="Computer Science Student" data-zh="计算机科学学生">Computer Science Student</h3>
+          <h4 class="exp-company" data-en="@ University of Birmingham Dubai" data-zh="@ 伯明翰大学迪拜分校">@ University of
+            Birmingham Dubai</h4>
+          <p class="exp-date" data-en="Sept 2024 - Present" data-zh="2024年9月 - 至今">Sept 2024 - Present</p>
+          <ul class="exp-list">
+            <li
+              data-en="Learning core computer science concepts including Data Structures, Algorithms, and System Architecture."
+              data-zh="学习核心计算机科学概念，包括数据结构、算法和系统架构。">Learning core computer science concepts including Data Structures,
+              Algorithms, and System Architecture.</li>
+            <li
+              data-en="Building full-stack applications using modern technologies like React, Django, and Spring Boot."
+              data-zh="使用React、Django和Spring Boot等现代技术构建全栈应用程序。">Building full-stack applications using modern
+              technologies like React, Django, and Spring Boot.</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="section-card">
-      <h2 data-en="Some of my projects" data-zh="部分我的项目">Some of my projects</h2>
+      <h2 class="section-title" data-en="Some Things I've Built" data-zh="我构建的一些东西">Some Things I've Built</h2>
       <div class="projects-container">
         <article class="project">
           <div class="project-image">
             <img src="assets/project1.png" alt="Studyo Project Screenshot" loading="lazy">
           </div>
-          <div class="project-info">
-            <h3 data-en="Studyo" data-zh="Studyo">Studyo</h3>
-            <p data-en="Full-stack application for student learning system with features including AI chatbot, real-time communication, learning flashcards..." 
-               data-zh="全栈式学生校园学习系统包括AI机器人，实时聊天，学习卡片等 ...">
-              Full-stack application for student learning system with features including AI chatbot, real-time communication, learning flashcards...
-            </p>
-            <div class="project-tech">
-              <span>Python</span>
-              <span>Django</span>
-              <span>PostgreSQL</span>
-              <span>React</span>
+          <div class="project-content">
+            <p class="project-overline" data-en="Featured Project" data-zh="精选项目">Featured Project</p>
+            <h3 class="project-title" data-en="Studyo" data-zh="Studyo">Studyo</h3>
+            <div class="project-description">
+              <p data-en="A comprehensive student learning system featuring an AI chatbot for personalized assistance, real-time communication tools, and interactive flashcards for efficient study sessions."
+                data-zh="一个综合性的学生学习系统，具有用于个性化辅助的AI聊天机器人、实时通信工具和用于高效学习的交互式抽认卡。">
+                A comprehensive student learning system featuring an AI chatbot for personalized assistance, real-time
+                communication tools, and interactive flashcards for efficient study sessions.
+              </p>
+            </div>
+            <ul class="project-tech-list">
+              <li>Python</li>
+              <li>Django</li>
+              <li>PostgreSQL</li>
+              <li>React</li>
+            </ul>
+            <div class="project-links">
+              <a href="#" aria-label="GitHub Link"><i class="fab fa-github"></i></a>
+              <a href="#" aria-label="External Link"><i class="fas fa-external-link-alt"></i></a>
             </div>
           </div>
         </article>
@@ -154,56 +147,91 @@
           <div class="project-image">
             <img src="assets/project2.png" alt="Semantic News Classifier System Screenshot" loading="lazy">
           </div>
-          <div class="project-info">
-            <h3 data-en="Semantic News Classifier System" data-zh="语义新闻分类系统">Semantic News Classifier System</h3>
-            <p data-en="Semantic News Classification System using TF-IDF and GloVe embeddings to categorize Sky News articles, improving process time by 10.1%." 
-               data-zh="一个语义新闻分类系统，使用 TF-IDF 和 GloVe 词向量对 Sky News 的新闻文章进行分类，将分类处理时间较传统方案提高了 10.1%。">
-               Semantic News Classification System using TF-IDF and GloVe embeddings to categorize Sky News articles, improving process time by 10.1%.
-            </p>
-            <div class="project-tech">
-              <span>Java</span>
-              <span>Spring</span>
+          <div class="project-content">
+            <p class="project-overline" data-en="Featured Project" data-zh="精选项目">Featured Project</p>
+            <h3 class="project-title" data-en="Semantic News Classifier" data-zh="语义新闻分类器">Semantic News Classifier</h3>
+            <div class="project-description">
+              <p data-en="Leveraged TF-IDF and GloVe embeddings to categorize Sky News articles with high accuracy. Optimized the classification process, achieving a 10.1% reduction in processing time compared to standard solutions."
+                data-zh="利用TF-IDF和GloVe嵌入以高精度对Sky News文章进行分类。优化了分类过程，与标准解决方案相比，处理时间减少了10.1%。">
+                Leveraged TF-IDF and GloVe embeddings to categorize Sky News articles with high accuracy. Optimized the
+                classification process, achieving a 10.1% reduction in processing time compared to standard solutions.
+              </p>
+            </div>
+            <ul class="project-tech-list">
+              <li>Java</li>
+              <li>Spring</li>
+              <li>NLP</li>
+            </ul>
+            <div class="project-links">
+              <a href="#" aria-label="GitHub Link"><i class="fab fa-github"></i></a>
+              <a href="#" aria-label="External Link"><i class="fas fa-external-link-alt"></i></a>
             </div>
           </div>
         </article>
       </div>
     </section>
 
+    <!-- Skills Section (Refined) -->
+    <section id="skills" class="section-card">
+      <h2 class="section-title" data-en="Skills & Technologies" data-zh="技能与技术">Skills & Technologies</h2>
+      <div class="skills-grid">
+        <div class="skill-column">
+          <h3 data-en="Languages" data-zh="编程语言">Languages</h3>
+          <ul class="skill-list">
+            <li><span class="skill-icon"><i class="fab fa-python"></i></span> Python</li>
+            <li><span class="skill-icon"><i class="fab fa-js"></i></span> JavaScript (ES6+)</li>
+            <li><span class="skill-icon"><i class="fab fa-java"></i></span> Java</li>
+            <li><span class="skill-icon"><i class="fas fa-code"></i></span> C</li>
+          </ul>
+        </div>
+        <div class="skill-column">
+          <h3 data-en="Frameworks" data-zh="框架">Frameworks</h3>
+          <ul class="skill-list">
+            <li><span class="skill-icon"><i class="fab fa-react"></i></span> React</li>
+            <li><span class="skill-icon"><i class="fab fa-python"></i></span> Django</li>
+            <li><span class="skill-icon"><i class="fas fa-leaf"></i></span> Spring Boot</li>
+          </ul>
+        </div>
+        <div class="skill-column">
+          <h3 data-en="Tools" data-zh="工具">Tools</h3>
+          <ul class="skill-list">
+            <li><span class="skill-icon"><i class="fab fa-git-alt"></i></span> Git & GitHub</li>
+            <li><span class="skill-icon"><i class="fab fa-docker"></i></span> Docker</li>
+            <li><span class="skill-icon"><i class="fas fa-terminal"></i></span> WSL</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact Section -->
-    <section id="contact" class="section-card">
-      <h2 data-en="Contact" data-zh="联系方式">Contact</h2>
-      <div class="contact-content">
-        <p data-en="Feel free to reach out to me for collaboration or questions." 
-           data-zh="如有合作或问题，请随时与我联系。">
-          Feel free to reach out to me for collaboration or questions.
-        </p>
-        <ul class="contact-list">
-          <li>
-            <i class="fas fa-envelope" aria-hidden="true"></i> 
-            <span class="contact-label">Email:</span> 
-            <a href="mailto:hengchengqwe@gmail.com">hengchengqwe@gmail.com</a>
-          </li>
-          <li>
-            <i class="fab fa-github" aria-hidden="true"></i> 
-            <span class="contact-label">GitHub:</span> 
-            <a href="https://github.com/hc2580411" target="_blank" rel="noopener noreferrer">https://github.com/hc2580411</a>
-          </li>
-          <li>
-            <i class="fab fa-linkedin" aria-hidden="true"></i> 
-            <span class="contact-label">LinkedIn:</span> 
-            <a href="https://www.linkedin.com/in/hengc" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/hengc</a>
-          </li>
-        </ul>
+    <section id="contact" class="section-card text-center">
+      <p class="contact-overline" data-en="What's Next?" data-zh="下一步？">What's Next?</p>
+      <h2 class="section-title" data-en="Get In Touch" data-zh="保持联系">Get In Touch</h2>
+      <p class="contact-text"
+        data-en="I'm currently looking for new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!"
+        data-zh="我目前正在寻找新的机会，我的收件箱随时为您敞开。无论您有问题还是只是想打个招呼，我都会尽力回复您！">
+        I'm currently looking for new opportunities, my inbox is always open. Whether you have a question or just want
+        to say hi, I'll try my best to get back to you!
+      </p>
+      <a href="mailto:hengchengqwe@gmail.com" class="cta-button primary big-btn" data-en="Say Hello" data-zh="打个招呼">Say
+        Hello</a>
+
+      <div class="social-links">
+        <a href="https://github.com/hc2580411" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
+            class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/hengc" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i
+            class="fab fa-linkedin"></i></a>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; <span id="current-year"></span> Heng Cheng. All rights reserved.</p>
+    <p data-en="Designed & Built by Heng Cheng" data-zh="由程恒设计与构建">Designed & Built by Heng Cheng</p>
+    <p>&copy; <span id="current-year"></span></p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>

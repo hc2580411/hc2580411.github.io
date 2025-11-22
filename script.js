@@ -1,46 +1,5 @@
-// Initialize particles background with custom configuration
+// Initialize
 document.addEventListener('DOMContentLoaded', () => {
-  // Particles.js initialization
-  if (typeof particlesJS !== 'undefined') {
-    particlesJS('particles-js', {
-      particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: '#6c5ce7' },
-        shape: { type: 'circle' },
-        opacity: { value: 0.5, random: true },
-        size: { value: 3, random: true },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: '#6c5ce7',
-          opacity: 0.4,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 2,
-          direction: 'none',
-          random: true,
-          straight: false,
-          out_mode: 'out',
-          bounce: false
-        }
-      },
-      interactivity: {
-        detect_on: 'canvas',
-        events: {
-          onhover: { enable: true, mode: 'grab' },
-          onclick: { enable: true, mode: 'push' },
-          resize: true
-        },
-        modes: {
-          grab: { distance: 140, line_linked: { opacity: 1 } },
-          push: { particles_nb: 4 }
-        }
-      },
-      retina_detect: true
-    });
-  }
 
   // Theme Management
   const themeBtn = document.getElementById('theme-toggle');
@@ -51,15 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.toggle('dark', theme === 'dark');
     themeIcon.src = theme === 'dark' ? 'assets/moon.png' : 'assets/sun.png';
     localStorage.setItem('theme', theme);
-
-    // Update particles color
-    if (window.pJSDom && window.pJSDom.length > 0) {
-      const color = theme === 'dark' ? '#a29bfe' : '#6c5ce7';
-      const pJS = window.pJSDom[0].pJS;
-      pJS.particles.color.value = color;
-      pJS.particles.line_linked.color = color;
-      pJS.fn.particlesRefresh();
-    }
   }
 
   // Initialize theme
@@ -127,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.section-card').forEach(section => {
+  document.querySelectorAll('.section-card, .hero-content > *').forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(20px)';
     section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
@@ -165,24 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           overlay.classList.add('hidden');
           document.body.style.overflow = '';
-
-          // Trigger hero animations
-          const heroTitle = document.querySelector('.hero-title');
-          const heroSubtitle = document.querySelector('.hero-subtitle');
-
-          if (heroTitle) {
-            heroTitle.style.animation = 'none';
-            heroTitle.offsetHeight; /* trigger reflow */
-            heroTitle.style.animation = 'fadeInUp 1s forwards 0.3s';
-            heroTitle.style.opacity = '0';
-          }
-
-          if (heroSubtitle) {
-            heroSubtitle.style.animation = 'none';
-            heroSubtitle.offsetHeight; /* trigger reflow */
-            heroSubtitle.style.animation = 'fadeInUp 1s forwards 0.5s';
-            heroSubtitle.style.opacity = '0';
-          }
 
           setTimeout(() => overlay.remove(), 1000);
         }, 2000);
