@@ -1,101 +1,104 @@
 // Initialize particles background with custom configuration
 document.addEventListener('DOMContentLoaded', () => {
-  // Particles.js initialization with custom configuration
-  particlesJS('particles-js', {
-    particles: {
-      number: { value: 80, density: { enable: true, value_area: 800 } },
-      color: { value: '#4a6bff' },
-      shape: { type: 'circle' },
-      opacity: { value: 0.5, random: true },
-      size: { value: 3, random: true },
-      line_linked: {
-        enable: true,
-        distance: 150,
-        color: '#4a6bff',
-        opacity: 0.4,
-        width: 1
+  // Particles.js initialization
+  if (typeof particlesJS !== 'undefined') {
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: '#6c5ce7' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: '#6c5ce7',
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: 'none',
+          random: true,
+          straight: false,
+          out_mode: 'out',
+          bounce: false
+        }
       },
-      move: {
-        enable: true,
-        speed: 2,
-        direction: 'none',
-        random: true,
-        straight: false,
-        out_mode: 'out',
-        bounce: false
-      }
-    },
-    interactivity: {
-      detect_on: 'canvas',
-      events: {
-        onhover: { enable: true, mode: 'grab' },
-        onclick: { enable: true, mode: 'push' },
-        resize: true
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'grab' },
+          onclick: { enable: true, mode: 'push' },
+          resize: true
+        },
+        modes: {
+          grab: { distance: 140, line_linked: { opacity: 1 } },
+          push: { particles_nb: 4 }
+        }
       },
-      modes: {
-        grab: { distance: 140, line_linked: { opacity: 1 } },
-        push: { particles_nb: 4 }
-      }
-    },
-    retina_detect: true
-  });
+      retina_detect: true
+    });
+  }
 
-  // Theme toggle functionality
+  // Theme Management
   const themeBtn = document.getElementById('theme-toggle');
   const themeIcon = document.getElementById('theme-icon');
   const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
   
-  // Check for saved theme preference or use system preference
+  function setTheme(theme) {
+    document.body.classList.toggle('dark', theme === 'dark');
+    themeIcon.src = theme === 'dark' ? 'assets/moon.png' : 'assets/sun.png';
+    localStorage.setItem('theme', theme);
+    
+    // Update particles color
+    if (window.pJSDom && window.pJSDom.length > 0) {
+      const color = theme === 'dark' ? '#a29bfe' : '#6c5ce7';
+      const pJS = window.pJSDom[0].pJS;
+      pJS.particles.color.value = color;
+      pJS.particles.line_linked.color = color;
+      pJS.fn.particlesRefresh();
+    }
+  }
+
+  // Initialize theme
   const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
-    document.body.classList.add('dark');
-    themeIcon.src = 'assets/moon.png';
+  if (savedTheme) {
+    setTheme(savedTheme);
+  } else if (prefersDarkScheme.matches) {
+    setTheme('dark');
   }
 
   themeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
     const isDark = document.body.classList.contains('dark');
-    themeIcon.src = isDark ? 'assets/moon.png' : 'assets/sun.png';
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    
-    // Update particles color based on theme
-    const particleColor = isDark ? '#6c8fff' : '#4a6bff';
-    pJSDom[0].pJS.particles.color.value = particleColor;
-    pJSDom[0].pJS.particles.line_linked.color = particleColor;
-    pJSDom[0].pJS.fn.particlesRefresh();
+    setTheme(isDark ? 'light' : 'dark');
   });
 
-  // Language toggle functionality
+  // Language Management
   const langBtn = document.getElementById('lang-toggle');
   const langIcon = document.getElementById('lang-icon');
   let currentLang = localStorage.getItem('language') || 'en';
   
-  // Apply saved language preference
-  if (currentLang === 'zh') {
-    langIcon.src = 'assets/zh.svg';
-    updateLanguage(currentLang);
-  } else {
-    updateLanguage(currentLang);
-  }
-
-  // 更新后的语言切换逻辑
-  langBtn.addEventListener('click', () => {
-      currentLang = currentLang === 'en' ? 'zh' : 'en';
-      langIcon.src = currentLang === 'en' ? langIcon.dataset.zh : langIcon.dataset.en;
-      updateLanguage(currentLang);
-      localStorage.setItem('language', currentLang);
-  });
-  
-  // 新增初始化逻辑
-  langIcon.src = currentLang === 'en' ? langIcon.dataset.zh : langIcon.dataset.en;
-
   function updateLanguage(lang) {
     document.querySelectorAll('[data-en]').forEach(el => {
-      el.textContent = el.dataset[lang];
+      const text = el.getAttribute(`data-${lang}`);
+      if (text) el.textContent = text;
     });
+    
+    langIcon.src = lang === 'en' ? langIcon.dataset.zh : langIcon.dataset.en;
+    localStorage.setItem('language', lang);
   }
 
-  // Smooth scrolling for anchor links
+  // Initialize language
+  updateLanguage(currentLang);
+
+  langBtn.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'zh' : 'en';
+    updateLanguage(currentLang);
+  });
+
+  // Smooth Scrolling
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
@@ -103,58 +106,55 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetElement = document.querySelector(targetId);
       
       if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 80, // Offset for header
-          behavior: 'smooth'
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
         });
       }
     });
   });
 
-  // Set current year in footer
+  // Footer Year
   document.getElementById('current-year').textContent = new Date().getFullYear();
 
-  // Add scroll animations
-  // Scroll-triggered animations
+  // Intersection Observer for Animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      entry.target.classList.toggle('visible', entry.isIntersecting);
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.1 });
   
-  document.querySelectorAll('section').forEach(section => {
+  document.querySelectorAll('.section-card').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(20px)';
+    section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
     observer.observe(section);
   });
+
+  // Loading Animation
+  function initLoading() {
+    const overlay = document.createElement('div');
+    overlay.className = 'loading-overlay';
+    
+    const loader = document.createElement('div');
+    loader.className = 'loader';
+    
+    overlay.appendChild(loader);
+    document.body.prepend(overlay);
+    document.body.style.overflow = 'hidden';
+
+    // Simulate loading time or wait for resources
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+        document.body.style.overflow = '';
+        setTimeout(() => overlay.remove(), 500);
+      }, 800);
+    });
+  }
+
+  initLoading();
 });
-
-
-// 添加加载动画初始化逻辑
-function initLoadingAnimation() {
-  const overlay = document.createElement('div');
-  overlay.className = 'loading-overlay';
-  
-  const chars = ['H', 'HE', 'HEN', 'HENG', 'HENG C', 'HENG CH', 'HENG CHE', 'HENG CHEN','HENG CHENG'];
-  
-  chars.forEach((text, index) => {
-    setTimeout(() => {
-      const div = document.createElement('div');
-      div.style.animation = `revealText 0.5s ease forwards`;
-      div.textContent = text;
-      overlay.appendChild(div);
-    }, index * 250);
-  });
-
-  document.body.prepend(overlay);
-  document.body.style.overflow = 'hidden';
-
-  // 动画完成处理
-  setTimeout(() => {
-    overlay.remove();
-    document.body.style.overflow = '';
-    document.querySelector('.name').style.opacity = '1';
-  }, 3500);
-}
-
-// 立即执行加载动画
-initLoadingAnimation();
-
