@@ -46,12 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeBtn = document.getElementById('theme-toggle');
   const themeIcon = document.getElementById('theme-icon');
   const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-  
+
   function setTheme(theme) {
     document.body.classList.toggle('dark', theme === 'dark');
     themeIcon.src = theme === 'dark' ? 'assets/moon.png' : 'assets/sun.png';
     localStorage.setItem('theme', theme);
-    
+
     // Update particles color
     if (window.pJSDom && window.pJSDom.length > 0) {
       const color = theme === 'dark' ? '#a29bfe' : '#6c5ce7';
@@ -79,13 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const langBtn = document.getElementById('lang-toggle');
   const langIcon = document.getElementById('lang-icon');
   let currentLang = localStorage.getItem('language') || 'en';
-  
+
   function updateLanguage(lang) {
     document.querySelectorAll('[data-en]').forEach(el => {
       const text = el.getAttribute(`data-${lang}`);
       if (text) el.textContent = text;
     });
-    
+
     langIcon.src = lang === 'en' ? langIcon.dataset.zh : langIcon.dataset.en;
     localStorage.setItem('language', lang);
   }
@@ -100,11 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Smooth Scrolling
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
       e.preventDefault();
       const targetId = this.getAttribute('href');
       const targetElement = document.querySelector(targetId);
-      
+
       if (targetElement) {
         targetElement.scrollIntoView({
           behavior: 'smooth',
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, { threshold: 0.1 });
-  
+
   document.querySelectorAll('.section-card').forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(20px)';
@@ -134,26 +134,60 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(section);
   });
 
-  // Loading Animation
+  // Loading Animation - Curtain Reveal
   function initLoading() {
     const overlay = document.createElement('div');
     overlay.className = 'loading-overlay';
-    
-    const loader = document.createElement('div');
-    loader.className = 'loader';
-    
-    overlay.appendChild(loader);
+
+    const text = document.createElement('div');
+    text.className = 'intro-text';
+    text.textContent = 'Hello';
+
+    const line = document.createElement('div');
+    line.className = 'intro-line';
+
+    overlay.appendChild(text);
+    overlay.appendChild(line);
     document.body.prepend(overlay);
     document.body.style.overflow = 'hidden';
 
-    // Simulate loading time or wait for resources
-    window.addEventListener('load', () => {
+    // Animation Sequence
+    setTimeout(() => {
+      text.style.opacity = '0';
+      text.style.transform = 'translateY(-20px)';
+      text.style.transition = 'all 0.5s ease';
+
       setTimeout(() => {
-        overlay.classList.add('hidden');
-        document.body.style.overflow = '';
-        setTimeout(() => overlay.remove(), 500);
-      }, 800);
-    });
+        text.textContent = "I'm Heng Cheng";
+        text.style.opacity = '1';
+        text.style.transform = 'translateY(0)';
+
+        setTimeout(() => {
+          overlay.classList.add('hidden');
+          document.body.style.overflow = '';
+
+          // Trigger hero animations
+          const heroTitle = document.querySelector('.hero-title');
+          const heroSubtitle = document.querySelector('.hero-subtitle');
+
+          if (heroTitle) {
+            heroTitle.style.animation = 'none';
+            heroTitle.offsetHeight; /* trigger reflow */
+            heroTitle.style.animation = 'fadeInUp 1s forwards 0.3s';
+            heroTitle.style.opacity = '0';
+          }
+
+          if (heroSubtitle) {
+            heroSubtitle.style.animation = 'none';
+            heroSubtitle.offsetHeight; /* trigger reflow */
+            heroSubtitle.style.animation = 'fadeInUp 1s forwards 0.5s';
+            heroSubtitle.style.opacity = '0';
+          }
+
+          setTimeout(() => overlay.remove(), 1000);
+        }, 2000);
+      }, 500);
+    }, 1000);
   }
 
   initLoading();
