@@ -126,6 +126,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Interactive Elements Logic
 
+  // Interactive Background
+  const bgContainer = document.querySelector('.gradient-background');
+  if (bgContainer) {
+    bgContainer.innerHTML = '';
+    const orb1 = document.createElement('div'); orb1.className = 'orb orb-1';
+    const orb2 = document.createElement('div'); orb2.className = 'orb orb-2';
+    const orb3 = document.createElement('div'); orb3.className = 'orb orb-3';
+    bgContainer.appendChild(orb1);
+    bgContainer.appendChild(orb2);
+    bgContainer.appendChild(orb3);
+
+    const orbs = document.querySelectorAll('.orb');
+
+    document.addEventListener('mousemove', (e) => {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+
+      orbs.forEach((orb, index) => {
+        const speed = (index + 1) * 20; // Different speeds for depth
+        const xOffset = (x - 0.5) * speed;
+        const yOffset = (y - 0.5) * speed;
+
+        orb.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+      });
+    });
+  }
+
   // Spotlight Effect
   const spotlightElements = document.querySelectorAll('.section-card, .project, .experience-item');
 
