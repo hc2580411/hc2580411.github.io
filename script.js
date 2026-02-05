@@ -103,15 +103,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Animation Sequence
     setTimeout(() => {
+      // 1. Fade out 'Hello'
+      text.style.transition = 'all 0.5s ease-in-out';
       text.style.opacity = '0';
       text.style.transform = 'translateY(-20px)';
-      text.style.transition = 'all 0.5s ease';
 
+      // 2. Wait for fade out to complete
       setTimeout(() => {
+        // 3. Change text and prepare for fade in
         text.textContent = "I'm Heng Cheng";
+        text.style.transition = 'none'; // Disable transition for instant reset
+        text.style.transform = 'translateY(20px)'; // Start from below
+
+        // Force reflow to apply the reset immediately
+        void text.offsetWidth;
+
+        // 4. Fade in 'I'm Heng Cheng'
+        text.style.transition = 'all 0.5s ease-in-out';
         text.style.opacity = '1';
         text.style.transform = 'translateY(0)';
 
+        // 5. Remove overlay
         setTimeout(() => {
           overlay.classList.add('hidden');
           document.body.style.overflow = '';
@@ -119,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(() => overlay.remove(), 1000);
         }, 2000);
       }, 500);
-    }, 1000);
+    }, 1500);
   }
 
   initLoading();
